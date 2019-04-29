@@ -1,7 +1,11 @@
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server); 
+//-------
+var add=(function(){var counter=0; return function(){return counter +=1;}})();
+//-------
+
 
 app.use('/css',express.static(__dirname + '/css'));
 app.use('/js',express.static(__dirname + '/js'));
@@ -29,7 +33,7 @@ io.on('connection',function(socket){
         socket.broadcast.emit('newplayer',socket.player);
 
         socket.on('click',function(data){
-            console.log('click to '+data.x+', '+data.y);
+            console.log('click to '+data.x+', '+data.y+' add='+add());
             socket.player.x = data.x;
             socket.player.y = data.y;
             io.emit('move',socket.player);
@@ -37,6 +41,7 @@ io.on('connection',function(socket){
 
         socket.on('disconnect',function(){
             io.emit('remove',socket.player.id);
+            console.log('removed : '+socket.player.id);
         });
     });
 
@@ -49,7 +54,12 @@ function getAllPlayers(){
     var players = [];
     Object.keys(io.sockets.connected).forEach(function(socketID){
         var player = io.sockets.connected[socketID].player;
-        if(player) players.push(player);
+        //if(player) players.push(player);
+        if(player)
+        { players.push(player);
+          //console.log('player : '+player.toString());
+          console.log('player : '+player.id);  
+        }
     });
     return players;
 }

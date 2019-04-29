@@ -11,6 +11,7 @@ Client.sendTest = function(){
 };
 
 Client.askNewPlayer = function(){
+    console.log("newplayer");
     Client.socket.emit('newplayer');
 };
 
