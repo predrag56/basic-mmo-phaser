@@ -22,6 +22,7 @@ server.listen(process.env.PORT || 8081,function(){
     console.log('Listening on '+server.address().port);
 });
 //===============
+/*
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
 
@@ -42,6 +43,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
     console.log("App now running on port", port);
   });
 });
+*/
 //===============
 
 io.on('connection',function(socket){
