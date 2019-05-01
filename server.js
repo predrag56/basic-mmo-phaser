@@ -3,10 +3,6 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server); 
-
-var mongodb = require("mongodb");
-//var ObjectID = mongodb.ObjectID;
-
 //-------
 var add=(function(){var counter=0; return function(){return counter +=1;}})();
 //-------
