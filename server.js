@@ -1,6 +1,11 @@
 
 var express = require('express');
 var app = express();
+//--
+// Manage command line arguments
+var myArgs = require('optimist').argv;
+var mongoHost, mongoDBName;
+//--
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server); 
 //-------
