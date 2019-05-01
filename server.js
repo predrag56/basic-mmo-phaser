@@ -1,18 +1,18 @@
 
 var express = require('express');
 var app = express();
-//--
-// Manage command line arguments
-var mongo = require('mongodb').MongoClient;
-///var myArgs = require('optimist').argv;
-var mongoHost, mongoDBName;
-//--
+
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server); 
 //-------
 var add=(function(){var counter=0; return function(){return counter +=1;}})();
 //-------
-
+//--
+//----------- Manage command line arguments
+//var mongo = require('mongodb').MongoClient;
+///var myArgs = require('optimist').argv;
+//var mongoHost, mongoDBName;
+//--
 
 app.use('/css',express.static(__dirname + '/css'));
 app.use('/js',express.static(__dirname + '/js'));
