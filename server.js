@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 //--
 // Manage command line arguments
+var mongo = require('mongodb').MongoClient;
 ///var myArgs = require('optimist').argv;
 var mongoHost, mongoDBName;
 //--
