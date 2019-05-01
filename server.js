@@ -1,3 +1,4 @@
+
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
@@ -20,17 +21,43 @@ server.lastPlayderID = 0;
 server.listen(process.env.PORT || 8081,function(){
     console.log('Listening on '+server.address().port);
 });
+//===============
+// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+var db;
+
+// Connect to the database before starting the application server.
+mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
+
+  // Save database object from the callback for reuse.
+  db = client.db();
+  console.log("Database connection ready");
+
+  // Initialize the app.
+  var serverx = app.listen(process.env.PORT || 8080, function () {
+    var port = serverx.address().port;
+    console.log("App now running on port", port);
+  });
+});
+//===============
 
 io.on('connection',function(socket){
 
     socket.on('newplayer',function(){
+        console.log('socket.on(newplayer');
+        
         socket.player = {
             id: server.lastPlayderID++,
             x: randomInt(100,400),
             y: randomInt(100,400)
         };
-        socket.emit('allplayers',getAllPlayers());
+        socket.emit('allplayers',getAllPlayers()); 
+        console.log('emit allplayers');
         socket.broadcast.emit('newplayer',socket.player);
+        console.log('broadcast.emitt NEWplayer');
 
         socket.on('click',function(data){
             console.log('click to '+data.x+', '+data.y+' add='+add());
