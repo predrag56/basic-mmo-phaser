@@ -3,11 +3,9 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server); 
-/*
-const mongodb=require('mongodb');
-var uri='mongodb://heroku_zvg927mb:Prexon56!@ds149596.mlab.com:49596/heroku_zvg927mb'
-mongodb.MongoClient.connect(uri,function(){console.log('izgleda..)'});
-*/
+
+
+var mongo = require('mongodb').MongoClient;
 //-------
 var add=(function(){var counter=0; return function(){return counter +=1;}})();
 //-------
@@ -25,7 +23,23 @@ server.lastPlayderID = 0;
 
 server.listen(process.env.PORT || 8081,function(){
     console.log('Listening on '+server.address().port);
+//----------------------------------
+
+//mongo.connect('mongodb://'+mongoHost+'/'+mongoDBName,function(err,db){
+
+mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mlab.com:47926/heroku_nl7x0l6c,function(err,db){
+        if(err) throw(err);
+        server.db = db;
+        console.log('Connection to db established');
+    });
+//------------------------------------    
 });
+
+
+
+
+
+
 
 io.on('connection',function(socket){
 
