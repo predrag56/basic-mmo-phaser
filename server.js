@@ -31,7 +31,16 @@ server.listen(process.env.PORT || 8081,function(){
 
 
 mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mlab.com:47926/heroku_nl7x0l6c',function(err,db){
-        if(err) throw(err);
+        if(err)
+        {
+         console.log('nedje error');
+         throw(err);
+        }
+        else
+        {
+         console.log('NIDJE error');
+        }
+        
         server.db = db;
         console.log('Connection to db established');
     });
