@@ -9,7 +9,7 @@ var mongo = require('mongodb').MongoClient;
 //-------
 var add=(function(){var counter=0; return function(){return counter +=1;}})();
 //-------
-
+var cnctd=0;
 
 app.use('/css',express.static(__dirname + '/css'));
 app.use('/js',express.static(__dirname + '/js'));
@@ -33,11 +33,13 @@ server.listen(process.env.PORT || 8081,function(){
 mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mlab.com:47926/heroku_nl7x0l6c',function(err,db){
         if(err)
         {
+         cnctd=1;
          console.log('nedje error');
          throw(err);
         }
         else
         {
+         cnctd=2;
          console.log('NIDJE error');
         }
         
@@ -56,7 +58,7 @@ mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mla
 io.on('connection',function(socket){
 
     socket.on('newplayer',function(){
-        console.log('socket.on(newplayer');
+        console.log('socket.on(newplayer)'+cnctd.toString());
         
         socket.player = {
             id: server.lastPlayderID++,
