@@ -59,6 +59,7 @@ io.on('connection',function(socket){
 
     socket.on('newplayer',function(){
         console.log('socket.on(newplayer)='+cnctd.toString());  //////!!!!!!!!!!!!!!
+        /*
         var plo=88;
         var doc=plo.dbTrim(); 
         server.db.collection('players').insertOne(doc,function(err)
@@ -67,7 +68,7 @@ io.on('connection',function(socket){
                                                       }
                                                  );        
         
-        
+        */
         //---------------------------------------
         
         socket.player = {
