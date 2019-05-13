@@ -60,16 +60,16 @@ io.on('connection',function(socket){
     socket.on('newplayer',function(){
         console.log('socket.on(newplayer)='+cnctd.toString());  //////!!!!!!!!!!!!!!
         
-        /*
-        var plo="88";
-        var doc=plo; //plo.dbTrim(); 
-        server.db.collection('players').insertOne(doc,function(err)
+        
+        //var plo="88";
+        //var doc=plo; //plo.dbTrim(); 
+        server.db.collection("players").insertOne("88",function(err)
                                                       { if(err)throw err;
                                                         console.log('Prodje ovo izgleda');
                                                       }
                                                  );        
         
-        */
+        
         //---------------------------------------
         
         socket.player = {
