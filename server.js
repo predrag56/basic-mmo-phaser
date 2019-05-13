@@ -58,7 +58,7 @@ mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mla
 io.on('connection',function(socket){
 
     socket.on('newplayer',function(){
-        console.log('socket.on(newplayer)'+cnctd.toString());
+        console.log('socket.on(newplayer)='+cnctd.toString());
         
         socket.player = {
             id: server.lastPlayderID++,
