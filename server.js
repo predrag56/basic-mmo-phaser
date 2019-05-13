@@ -58,7 +58,17 @@ mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mla
 io.on('connection',function(socket){
 
     socket.on('newplayer',function(){
-        console.log('socket.on(newplayer)='+cnctd.toString());
+        console.log('socket.on(newplayer)='+cnctd.toString());  //////!!!!!!!!!!!!!!
+        var plo=88;
+        var doc=plo.dbTrim(); 
+        server.db.collection('players').insertOne(doc,function(err)
+                                                      { if(arr)throw err;
+                                                        console.log('Prodje ovo izgleda');
+                                                      }
+                                                 );        
+        
+        
+        //---------------------------------------
         
         socket.player = {
             id: server.lastPlayderID++,
