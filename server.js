@@ -63,7 +63,7 @@ io.on('connection',function(socket){
         
         //var plo="88";
         //var doc=plo; //plo.dbTrim(); 
-        db.collection('players').insertOne('88',function(err){ if(err)throw err; console.log('Prodje ovo izgleda'); } );        
+        server.db.collection('players').insertOne('88',function(err){ if(err)throw err; console.log('Prodje ovo izgleda'); } );        
         
         
         //---------------------------------------
