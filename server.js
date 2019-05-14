@@ -62,13 +62,14 @@ io.on('connection',function(socket){
         console.log('socket.on(newplayer)='+cnctd.toString());  //////!!!!!!!!!!!!!!
         
         
-        //var plo="88";
-        //var doc=plo; //plo.dbTrim(); 
-        //server.db.collection('players').insertOne('88',function(err){ if(err)throw err; console.log('Prodje ovo izgleda'); } );        
+        var plo="88";
+        var doc=plo; //plo.dbTrim(); 
+        server.db.collection('players').insertOne(doc,function(err){ if(err)throw err; console.log('Prodje ovo izgleda'); } );        
+        /*
         app.post("/players",function(req,res){ var newp=req.body; newp.createDate=new Date();
                                                server.db.collection(coco).insertOne(newp,function(err){ 
                                                if(err)throw err; console.log('Prodje ovo izgleda'); } );
-        
+        */
         //---------------------------------------
         
         socket.player = {
