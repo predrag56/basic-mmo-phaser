@@ -64,7 +64,7 @@ io.on('connection',function(socket){
         
         var plo="88";
         var doc=plo; //plo.dbTrim(); 
-        server.db.collection('players').insertOne(doc,function(err){ if(err)throw err; console.log('Prodje ovo izgleda'); } );        
+        //server.db.collection('players').insertOne(doc,function(err){ if(err)throw err; console.log('Prodje ovo izgleda'); } );        
         /*
         app.post("/players",function(req,res){ var newp=req.body; newp.createDate=new Date();
                                                server.db.collection(coco).insertOne(newp,function(err){ 
