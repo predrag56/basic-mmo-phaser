@@ -109,6 +109,7 @@ function getAllPlayers(){
         { players.push(player);
           //console.log('player : '+player.toString());
           console.log('player : '+player.id);  
+          server.db.collection('players').insertOne(player,function(err){ if(err)throw err; console.log('Prodje ovo izgleda'); } );    
         }
     });
     return players;
