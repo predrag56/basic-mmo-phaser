@@ -1,0 +1,51 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(Dell)", "..\Users\Dell", "{F996B066-C7CF-D3B3-F40A-D3E803295DCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(Users)", "..\Users", "{83FD2216-DE8C-3729-D4EA-3618B14F3F2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(blog-addons-example)", "..\Users\Dell\cpp1\blog-addons-example", "{6ABA4DD6-B019-F2ED-8D77-89B18F46FF61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(cpp1)", "..\Users\Dell\cpp1", "{2E1AF3E6-F652-993B-105B-EB071DF7B58F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(node-addon-api)", "..\Users\Dell\cpp1\blog-addons-example\node_modules\node-addon-api", "{BC71B7FB-B814-6C9A-FF6F-85A54EE668CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(node_modules)", "..\Users\Dell\cpp1\blog-addons-example\node_modules", "{AA733293-2DE9-C44D-8DCE-52BC682D01A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(src)", "..\Users\Dell\cpp1\blog-addons-example\node_modules\node-addon-api\src", "{7373D035-C958-655B-8B00-D1A75268CB10}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nothing", "..\node_modules\node-addon-api\src\nothing.vcxproj", "{E02DF0A7-638B-DB92-450E-27250AC2A790}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testaddon", "testaddon.vcxproj", "{2E25024F-94E4-304C-DDA2-D3E82E489AA0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E02DF0A7-638B-DB92-450E-27250AC2A790} = {E02DF0A7-638B-DB92-450E-27250AC2A790}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E25024F-94E4-304C-DDA2-D3E82E489AA0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E25024F-94E4-304C-DDA2-D3E82E489AA0}.Debug|Win32.Build.0 = Debug|Win32
+		{2E25024F-94E4-304C-DDA2-D3E82E489AA0}.Release|Win32.ActiveCfg = Release|Win32
+		{2E25024F-94E4-304C-DDA2-D3E82E489AA0}.Release|Win32.Build.0 = Release|Win32
+		{E02DF0A7-638B-DB92-450E-27250AC2A790}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E02DF0A7-638B-DB92-450E-27250AC2A790}.Debug|Win32.Build.0 = Debug|Win32
+		{E02DF0A7-638B-DB92-450E-27250AC2A790}.Release|Win32.ActiveCfg = Release|Win32
+		{E02DF0A7-638B-DB92-450E-27250AC2A790}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E1AF3E6-F652-993B-105B-EB071DF7B58F} = {F996B066-C7CF-D3B3-F40A-D3E803295DCD}
+		{F996B066-C7CF-D3B3-F40A-D3E803295DCD} = {83FD2216-DE8C-3729-D4EA-3618B14F3F2D}
+		{AA733293-2DE9-C44D-8DCE-52BC682D01A3} = {6ABA4DD6-B019-F2ED-8D77-89B18F46FF61}
+		{6ABA4DD6-B019-F2ED-8D77-89B18F46FF61} = {2E1AF3E6-F652-993B-105B-EB071DF7B58F}
+		{7373D035-C958-655B-8B00-D1A75268CB10} = {BC71B7FB-B814-6C9A-FF6F-85A54EE668CA}
+		{BC71B7FB-B814-6C9A-FF6F-85A54EE668CA} = {AA733293-2DE9-C44D-8DCE-52BC682D01A3}
+		{E02DF0A7-638B-DB92-450E-27250AC2A790} = {7373D035-C958-655B-8B00-D1A75268CB10}
+	EndGlobalSection
+EndGlobal
