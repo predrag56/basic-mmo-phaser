@@ -24,6 +24,14 @@ child.on('close', function () {
     //console.log(result);
 });
 
+var fs = require('fs');
+
+fs.readFile('./testsimplex.txt', 'utf8', function (err, contents) {
+
+        console.log(contents);
+});
+
+console.log('after calling readFile!!!!!!!!!!!!!!!!!');
 
 
 //console.log(result);
