@@ -1,4 +1,4 @@
-const fotran = require("fortran");
+//const fotran = require("fortran");
 
 var express = require('express');
 var coco="players";
@@ -41,7 +41,7 @@ console.log('after calling readFile');
 console.log('addon', testAddon);
 console.log('hello ', testAddon.hello());
 console.log('add ', testAddon.add(5, 10));
-console.log('add1 ', testAddon.add1(33, 55));
+//console.log('add1 ', testAddon.add1(33, 55));
 var suma = testAddon.add(4, 5)
 console.log('SUMA ', suma);
 
