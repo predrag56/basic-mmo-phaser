@@ -8,11 +8,16 @@ var io = require('socket.io').listen(server);
 
 const testAddon = require('./build/Release/testaddon.node');
 
-var exec = require('child_process').exec;
+//var exec = require('child_process').exec;
 
 var result = '';
 
+const {exec} = require("child_process")
+//exec('simplex.exe').unref()
+
 var child = exec('simplex.exe');
+
+//var child = exec('simplex.exe');
 
 
 child.stdout.on('data', function (data) {
