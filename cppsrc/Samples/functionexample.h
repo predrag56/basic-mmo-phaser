@@ -8,6 +8,9 @@ namespace functionexample {
     int add(int a, int b);
     Napi::Number AddWrapped(const Napi::CallbackInfo& info);
 
+	int add1(int a, int b);
+	Napi::Number Add1Wrapped(const Napi::CallbackInfo& info);
+
     Napi::Object Init(Napi::Env env, Napi::Object exports);
     
 }
