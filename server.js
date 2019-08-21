@@ -29,12 +29,12 @@ child.on('close', function () {
 //console.log(result);
 console.log('hi aj aj');
 
-//var fs = require('fs');
+var fs = require('fs');
 
-//fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
+fs.readFile('./testsimplex.txt', 'utf8', function (err, contents) {
 
-//        console.log(contents);
-//});
+        console.log(contents);
+});
 
 console.log('after calling readFile');
 
