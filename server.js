@@ -1,3 +1,4 @@
+const fotran = require("fortran");
 
 var express = require('express');
 var coco="players";
@@ -7,9 +8,42 @@ var io = require('socket.io').listen(server);
 
 const testAddon = require('./build/Release/testaddon.node');
 
+var exec = require('child_process').exec;
+
+var result = '';
+
+var child = exec('simplex.exe');
+//var child = exec('tsvg2.exe');
+
+child.stdout.on('data', function (data) {
+    result += data;
+});
+
+child.on('close', function () {
+    console.log('done done i done');
+    //console.log(result);
+});
+
+
+
+console.log(result);
+console.log('hi aj aj');
+
+var fs = require('fs');
+
+fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
+fs.readFile('walls.txt', 'utf8', function (err, contents) {
+        console.log(contents);
+});
+
+console.log('after calling readFile');
+
 console.log('addon', testAddon);
 console.log('hello ', testAddon.hello());
 console.log('add ', testAddon.add(5, 10));
+console.log('add1 ', testAddon.add1(33, 55));
+var suma = testAddon.add(4, 5)
+console.log('SUMA ', suma);
 
 const prevInstance = new testAddon.ClassExample(4.3);
 console.log('Initial value : ', prevInstance.getValue());
@@ -138,3 +172,4 @@ function getAllPlayers(){
 function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
 }
+
