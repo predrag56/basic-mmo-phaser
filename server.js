@@ -8,33 +8,33 @@ var io = require('socket.io').listen(server);
 
 const testAddon = require('./build/Release/testaddon.node');
 
-var exec = require('child_process').exec;
+//var exec = require('child_process').exec;
 
-var result = '';
+//var result = '';
 
-var child = exec('simplex.exe');
-//var child = exec('tsvg2.exe');
+//var child = exec('simplex.exe');
 
-child.stdout.on('data', function (data) {
-    result += data;
-});
 
-child.on('close', function () {
-    console.log('done done i done');
+//child.stdout.on('data', function (data) {
+//    result += data;
+//});
+
+//child.on('close', function () {
+//    console.log('done done i done');
     //console.log(result);
-});
+//});
 
 
 
-console.log(result);
+//console.log(result);
 console.log('hi aj aj');
 
-var fs = require('fs');
+//var fs = require('fs');
 
-fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
-fs.readFile('walls.txt', 'utf8', function (err, contents) {
-        console.log(contents);
-});
+//fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
+
+//        console.log(contents);
+//});
 
 console.log('after calling readFile');
 
