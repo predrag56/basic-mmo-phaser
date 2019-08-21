@@ -12,7 +12,7 @@ var exec = require('child_process').exec;
 
 var result = '';
 
-var child = exec('./simplex.exe');
+var child = exec('simplex.exe');
 
 
 child.stdout.on('data', function (data) {
@@ -26,7 +26,7 @@ child.on('close', function () {
 
 var fs = require('fs');
 
-fs.readFile('./testsimplex.txt', 'utf8', function (err, contents) {
+fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
 
         console.log(contents);
 });
@@ -149,12 +149,12 @@ io.on('connection',function(socket){
             console.log('removed : '+socket.player.id);
 var fs = require('fs');
 
-fs.readFile('./testsimplex.txt', 'utf8', function (err, contents) {
+fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
 
         console.log(contents);
 });
 
-console.log('after calling readFile');
+console.log('==========after calling readFile============');
 
         });
     });
