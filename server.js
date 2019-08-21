@@ -8,24 +8,42 @@ var io = require('socket.io').listen(server);
 
 const testAddon = require('./build/Release/testaddon.node');
 
-//var exec = require('child_process').exec;
 
+const execFile = require('child_process').execFile;
+const child1 = execFile('./assets/simplexw.exe',  (error, stdout, stderr) => {
+  if(error)
+  {console.log('--------execFile--------');}
+  else
+  {console.log('=====execFile===========');}
+  
+  // You get here when the executable completes
+});
+
+
+var exec = require('child_process').exec;
 var result = '';
-
-const {exec} = require("child_process")
+//const {exec} = require("child_process")
 //exec('simplex.exe').unref()
-
 var child = exec('simplex.exe');
-
 //var child = exec('simplex.exe');
-
-
-child.stdout.on('data', function (data) {
+child.stdout.on('data', function (data,err) {
+   if(err)
+        {
+         
+         console.log('=====nedje error');
+         throw(err);
+        }
+   else
+     {
+       console.log('===== NO error');
     result += data;
+  console.log(result);
+     }
+
 });
 
 child.on('close', function () {
-    console.log('done done i done');
+    console.log('\\\\\\\ done done i done');
     //console.log(result);
 });
 
@@ -144,6 +162,8 @@ io.on('connection',function(socket){
 
         socket.on('click',function(data){
             console.log('click to '+data.x+', '+data.y+' add='+add());
+            var suma1 = testAddon.add(344, 55)
+            data.x=suma1;
             socket.player.x = data.x;
             socket.player.y = data.y;
             io.emit('move',socket.player);
