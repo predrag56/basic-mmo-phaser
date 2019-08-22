@@ -4,6 +4,7 @@ class ActualClass {
   double getValue();
   double add(double toAdd);
   double change(double k, double kk);
+
  private:
   double value_;
 };

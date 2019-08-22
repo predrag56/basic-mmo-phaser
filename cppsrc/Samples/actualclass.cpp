@@ -1,4 +1,12 @@
 #include "actualclass.h"
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
+#include <Windows.h>
+
+using namespace std;
+
+
 
 ActualClass::ActualClass(double value){
     this->value_ = value;
@@ -22,7 +30,9 @@ double ActualClass::add(double toAdd)
 
 double ActualClass::change(double k,double kk)
 {
-//k *= 11.0;
+	STARTUPINFO startInfo={0};
+	PROCESS_INFORMATION processInfo={0};
+	BOOL bSucces=CreateProcess(TEXT("./uselib.exe"),NULL,NULL,NULL,FALSE,NULL,NULL,NULL,&startInfo,&processInfo);
 	kk=k*111;
 return kk;
 }
