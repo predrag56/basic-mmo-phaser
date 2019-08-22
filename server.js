@@ -17,50 +17,14 @@ var io = require('socket.io').listen(server);
 const testAddon = require('./build/Release/testaddon.node');
 
 
-const execFile = require('child_process').execFile;
-const child1 = execFile('./assets/uselib.exe',  (error, stdout, stderr) => {
-  if(error)
-  {console.log('--------execFile--------');}
-  else
-  {console.log('=====execFile========lib===');}
-  
-  // You get here when the executable completes
-});
 
 
-var exec = require('child_process').exec;
-var result = '';
-//const {exec} = require("child_process")
-//exec('simplex.exe').unref()
-var child = exec('uselib.exe');
-//var child = exec('simplex.exe');
-child.stdout.on('data', function (data,err) {
-   if(err)
-        {
-         
-         console.log('=====nedje error');
-         throw(err);
-        }
-   else
-     {
-       console.log('===== NO error');
-    result += data;
-  console.log(result);
-     }
+//var fs = require('fs');
 
-});
+//fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
 
-child.on('close', function () {
-    console.log('\\\\\\\ done done i done');
-    //console.log(result);
-});
-
-var fs = require('fs');
-
-fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
-
-        console.log(contents);
-});
+        //console.log(contents);
+//});
 
 console.log('after calling readFile!!!!!!!!!!!!!!!!!');
 
@@ -180,12 +144,12 @@ io.on('connection',function(socket){
         socket.on('disconnect',function(){
             io.emit('remove',socket.player.id);
             console.log('removed : '+socket.player.id);
-var fs = require('fs');
+//var fs = require('fs');
 
-fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
+//fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
 
-        console.log(contents);
-});
+        //console.log(contents);
+//});
 
 console.log('==========after calling readFile============');
 
