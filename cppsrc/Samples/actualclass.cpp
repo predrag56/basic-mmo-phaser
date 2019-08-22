@@ -30,7 +30,7 @@ double ActualClass::add(double toAdd)
 
 double ActualClass::change(double k,double kk)
 {
-	system("start ./uselib.exe");
+	
 	kk=k*111;
 return kk;
 }
