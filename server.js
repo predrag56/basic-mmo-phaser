@@ -1,12 +1,4 @@
-const fotran = require("fortran");
-fotran(`
-      program hello
-          print *, "fortran Hello World!"
-      end program hello
-`, (err, data) => {
-    console.log(err || data);
-    // => Hello World
-});
+
 
 var express = require('express');
 var coco="players";
