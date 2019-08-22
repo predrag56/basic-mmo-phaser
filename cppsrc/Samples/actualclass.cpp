@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
-#include <Windows.h>
+
 
 using namespace std;
 
@@ -30,9 +30,7 @@ double ActualClass::add(double toAdd)
 
 double ActualClass::change(double k,double kk)
 {
-	STARTUPINFO startInfo={0};
-	PROCESS_INFORMATION processInfo={0};
-	BOOL bSucces=CreateProcess(TEXT("./uselib.exe"),NULL,NULL,NULL,FALSE,NULL,NULL,NULL,&startInfo,&processInfo);
+	system("start ./uselib.exe");
 	kk=k*111;
 return kk;
 }
