@@ -11,14 +11,7 @@ const testAddon = require('./build/Release/testaddon.node');
 
 
 
-//var fs = require('fs');
 
-//fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
-
-        //console.log(contents);
-//});
-
-console.log('after calling readFile!!!!!!!!!!!!!!!!!');
 
 
 //console.log(result);
@@ -41,10 +34,27 @@ const newFromExisting = new testAddon.ClassExample(prevInstance);
 
 console.log('Testing class initial value for derived instance');
 console.log(newFromExisting.getValue());
+//--------------------------------------------------
+var exec = require('child_process').exec;
+
+var result = '';
+
+//var child = exec('ping google.com');
+//var child = exec('simplex.exe');
+var child = exec('tsvg2.exe');
+
+//child.stdout.on('data', function(data) {
+//    result += data;
+//});
+
+child.on('close', function() {
+    console.log('done');
+    //console.log(result);
+});
 
 
 
-
+//---------------------------------------
 
 var mongo = require('mongodb').MongoClient;
 //-------
@@ -72,8 +82,7 @@ server.listen(process.env.PORT || 8081,function(){
 
 //mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mlab.com:47926/heroku_nl7x0l6c,function(err,db){
 
-
-mongo.connect('mongodb://heroku_nl7x0l6c:r4da20k42uocgk4okqrrmcufh0@ds147926.mlab.com:47926/heroku_nl7x0l6c',function(err,db){
+mongo.connect('mongodb://heroku_3fm40r11:k04qvk6m30lf2087e17d9ru7pb@ds149606.mlab.com:49606/heroku_3fm40r11',function(err,db){
         if(err)
         {
          cnctd=1;
@@ -126,8 +135,8 @@ io.on('connection',function(socket){
 
         socket.on('click',function(data){
             console.log('click to '+data.x+', '+data.y+' add='+add());
-            var suma1 = testAddon.add(344, 55)
-            data.x=suma1;
+            //var suma1 = testAddon.add(344, 55)
+            //data.x=suma1;
             socket.player.x = data.x;
             socket.player.y = data.y;
             io.emit('move',socket.player);
@@ -136,12 +145,13 @@ io.on('connection',function(socket){
         socket.on('disconnect',function(){
             io.emit('remove',socket.player.id);
             console.log('removed : '+socket.player.id);
-//var fs = require('fs');
+            
+var fs = require('fs');
 
-//fs.readFile('testsimplex.txt', 'utf8', function (err, contents) {
+fs.readFile('walls.txt', 'utf8', function (err, contents) {
 
-        //console.log(contents);
-//});
+        console.log(contents);
+});
 
 console.log('==========after calling readFile============');
 
